@@ -42,11 +42,9 @@ public class Kayitol extends AppCompatActivity {
                 final String sifre= ((EditText)findViewById(R.id.sifrem)).getText().toString();
                 final String sifre2=  ((EditText)findViewById(R.id.sifrem2)).getText().toString();
                 final String email=  ((EditText)findViewById(R.id.emailim)).getText().toString();
-                Toast.makeText(getApplicationContext(), "Kullanıcıadi:"+email+":Sifre:"+sifre+":", Toast.LENGTH_LONG).show();
 
                 uyeol(ad,email,sifre);
-                Intent intocan = new Intent(Kayitol.this, Giris.class);
-                startActivity(intocan);
+
             }
         });
 
@@ -54,14 +52,19 @@ public class Kayitol extends AppCompatActivity {
 
     public void createuser(String kadi,String email,String password)
     {
+        final DatabaseReference reference = db.getReference().child("Kullanici");
+        String key=reference.getKey();
+        final DatabaseReference reference2 = db.getReference().child("Kullanici/"+key);
 
-        final DatabaseReference reference = db.getReference().child("Users");
-        Map<String, String> map = new HashMap<String, String>();
-        map.put("Kullanici Adı", kadi);
-        map.put("Email", email);
-        map.put("sifre",password);
-        map.put("Puan","0");
-        reference.push().setValue(map);
+        Map<String, String> users = new HashMap<>();
+        users.put("Kullaniciadi", kadi);
+        users.put("email", email);
+        users.put("sifre", password);
+        users.put("puan", "0");
+        reference.push().setValue(users);
+        Toast.makeText(getApplicationContext(), "Kayıt Olundu", Toast.LENGTH_LONG).show();
+        Intent intocan = new Intent(Kayitol.this, Giris.class);
+        startActivity(intocan);
 
     }
 
@@ -71,23 +74,26 @@ public class Kayitol extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        Toast.makeText(getApplicationContext(), "Giriş", Toast.LENGTH_LONG).show();
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
 
                             FirebaseUser user = mAuth.getCurrentUser();
-                            createuser(kadi, email, password);
+                            createuser(kadi,email,password);
+
+
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(Kayitol.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_LONG).show();
 
-
-                            // ...
                         }
+
+
                     }
                 });
-    }
 
+}
     }
 
 

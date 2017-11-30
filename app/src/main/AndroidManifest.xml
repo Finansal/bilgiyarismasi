@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Kayitol" />
-        <activity android:name=".Anasayfa"></activity>
+        <activity android:name=".Anasayfa" />
+        <activity android:name=".Profil"></activity>
     </application>
 
 </manifest>

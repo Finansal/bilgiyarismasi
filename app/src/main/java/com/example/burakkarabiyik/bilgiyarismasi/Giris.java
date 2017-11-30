@@ -67,9 +67,6 @@ public class Giris extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 
     public void sign(String email,String password)
