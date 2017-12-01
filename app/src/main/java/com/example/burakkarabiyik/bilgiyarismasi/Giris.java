@@ -71,7 +71,16 @@ public class Giris extends AppCompatActivity {
 
     public void sign(String email,String password)
     {
-          mAuth.signInWithEmailAndPassword(email, password)
+
+        if(email.equals("admin"))
+    {
+        Intent intocan = new Intent(Giris.this, SoruEkle.class);
+        startActivity(intocan);
+    }
+    else
+    {
+
+        mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -93,6 +102,7 @@ public class Giris extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
     }
 
     @Override

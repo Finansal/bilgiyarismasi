@@ -20,7 +20,10 @@
         </activity>
         <activity android:name=".Kayitol" />
         <activity android:name=".Anasayfa" />
-        <activity android:name=".Profil"></activity>
+        <activity android:name=".Profil" />
+        <activity android:name=".Ayarlar" />
+        <activity android:name=".Kategoriler" />
+        <activity android:name=".SoruEkle"></activity>
     </application>
 
 </manifest>

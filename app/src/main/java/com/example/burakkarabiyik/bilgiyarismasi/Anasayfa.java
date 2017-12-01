@@ -32,6 +32,14 @@ public class Anasayfa extends AppCompatActivity {
                 startActivity(intocan);
             }
         });
+        Button btn2=(Button)findViewById(R.id.button3);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intocan = new Intent(Anasayfa.this, Kategoriler.class);
+                startActivity(intocan);
+            }
+        });
 
         }
 

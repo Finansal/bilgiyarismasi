@@ -53,17 +53,18 @@ public class Kayitol extends AppCompatActivity {
     public void createuser(String kadi,String email,String password)
     {
         final DatabaseReference reference = db.getReference().child("Kullanici");
-        String key=reference.getKey();
-        final DatabaseReference reference2 = db.getReference().child("Kullanici/"+key);
+        String key=reference.push().getKey();
 
         Map<String, String> users = new HashMap<>();
+        users.put("id",key);
         users.put("Kullaniciadi", kadi);
         users.put("email", email);
         users.put("sifre", password);
         users.put("puan", "0");
-        reference.push().setValue(users);
-        Toast.makeText(getApplicationContext(), "Kayıt Olundu", Toast.LENGTH_LONG).show();
+        users.put("seviye", "1");
+        reference.child(key).setValue(users);
         Intent intocan = new Intent(Kayitol.this, Giris.class);
+        Toast.makeText(getApplicationContext(), "Kayıt Olundu", Toast.LENGTH_LONG).show();
         startActivity(intocan);
 
     }
