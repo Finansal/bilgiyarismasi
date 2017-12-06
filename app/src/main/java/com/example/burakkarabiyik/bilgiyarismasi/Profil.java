@@ -95,7 +95,7 @@ public class Profil extends AppCompatActivity {
                                                         (String) message.get("email"), (String) message.get("sifre"), (String) message.get("puan"),(String) message.get("seviye"));
                                                     kadi.setText(k.getAd());
                                                     id=(String)message.get("id");
-                                                Toast.makeText(getApplicationContext(), id, Toast.LENGTH_LONG).show();
+
 
                                                 emaill.setText(k.getEmail());
                                                     puann.setText(k.getpuan());

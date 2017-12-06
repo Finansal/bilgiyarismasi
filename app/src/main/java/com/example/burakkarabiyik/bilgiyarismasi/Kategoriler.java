@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,15 +24,18 @@ public class Kategoriler extends AppCompatActivity {
     DatabaseReference ref;
      String soru;
     EditText edtsoru;
+    TextView puani12;
     Button a;
     Button b;
     Button c;
     Button d;
     int kazanilanpuan=0;
+    String oncekipuan;
     Button cik;
     Kullanici k;
     String degeri;
     String cevap;
+    String id;
 
     String mail;
     @Override
@@ -60,6 +64,7 @@ public class Kategoriler extends AppCompatActivity {
         c=(Button)findViewById(R.id.button13);
         d=(Button)findViewById(R.id.button14);
         cik=(Button)findViewById(R.id.button15);
+        puani12=(TextView)findViewById(R.id.textView12);
 
         ref = FirebaseDatabase.getInstance().getReference("Kullanici");
         Query yeni=ref.orderByChild("email").equalTo(mail);
@@ -70,10 +75,10 @@ public class Kategoriler extends AppCompatActivity {
                     //child is each element in the finished list
 
                     Map<String, Object> message = (Map<String, Object>) child.getValue();
-                    soru=(message.get("seviye").toString());
-                    Toast.makeText(Kategoriler.this, "soru :"+message.get("seviye")+" "+message.get("id"),
-                            Toast.LENGTH_SHORT).show();
-                    soru(soru);
+
+                    soru(message.get("seviye").toString());
+                    id=(String)message.get("id");
+                    oncekipuan=(String)message.get("puan");
                 }
             }
 
@@ -159,8 +164,10 @@ public class Kategoriler extends AppCompatActivity {
         cik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Kategoriler.this, "Kazanılan puan :"+kazanilanpuan,
-                        Toast.LENGTH_SHORT).show();
+
+
+                ref = FirebaseDatabase.getInstance().getReference("Kullanici");
+                ref.child(id).child("puan").setValue(Integer.toString(Integer.parseInt(oncekipuan)+kazanilanpuan));
             }
         });
 
@@ -169,13 +176,20 @@ public class Kategoriler extends AppCompatActivity {
 
     void soru(String sorum)
     {
-        DatabaseReference  ref2=FirebaseDatabase.getInstance().getReference("Soru");
+        DatabaseReference ref2 = FirebaseDatabase.getInstance().getReference("Soru");
         Query yeni=ref2.orderByChild("numarasi").equalTo(sorum);
 
+        puani12.setText("Kazanılan Puan:"+kazanilanpuan);
 
         yeni.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                if(!dataSnapshot.exists())
+                {
+                    Toast.makeText(Kategoriler.this, "Soru Bitti :",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     //child is each element in the finished list
                     Map<String, Object> message = (Map<String, Object>) child.getValue();
@@ -195,5 +209,6 @@ public class Kategoriler extends AppCompatActivity {
             }
         });
 
+        soru=sorum;
     }
 }

@@ -13,6 +13,14 @@
         tools:layout_editor_absoluteY="16dp">
 
         <EditText
+            android:id="@+id/editText6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Soru"
+            android:inputType="textPersonName" />
+
+        <EditText
             android:id="@+id/editText7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,14 +31,6 @@
             android:inputType="textPersonName"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="46dp" />
-
-        <EditText
-            android:id="@+id/editText6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Soru"
-            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/editText10"
@@ -96,6 +96,16 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Doğru Şık" />
+
+        <EditText
+            android:id="@+id/editText14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/editText11"
+            android:layout_alignEnd="@+id/editText11"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Kategorisi" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
