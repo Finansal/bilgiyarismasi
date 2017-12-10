@@ -1,7 +1,12 @@
 package com.example.burakkarabiyik.bilgiyarismasi;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -31,10 +36,16 @@ public class Giris extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseDatabase db;
 
+
+    /////////////////
+
+
+int ooo=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_giris);
+
 
        /* new Handler().postDelayed(new Runnable(){
             @Override
@@ -81,6 +92,9 @@ public class Giris extends AppCompatActivity {
 
         });
     }
+
+
+
 
     public void sign(String email,String password)
     {

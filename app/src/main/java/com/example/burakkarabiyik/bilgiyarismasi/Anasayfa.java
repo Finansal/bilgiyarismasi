@@ -27,6 +27,9 @@ public class Anasayfa extends AppCompatActivity {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anasayfa);
+        setContentView(R.layout.activity_anasayfa);
+        Button kuralbtn=(Button)findViewById(R.id.button27);
+        Button sorubtn=(Button)findViewById(R.id.button20);
         Button btn=(Button)findViewById(R.id.button4);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +49,20 @@ public class Anasayfa extends AppCompatActivity {
 
         /* */
 
+        kuralbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intocan = new Intent(Anasayfa.this, Aciklama.class);
+                startActivity(intocan);
+            }
+        });
+        sorubtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intocan = new Intent(Anasayfa.this, SoruOneri.class);
+                startActivity(intocan);
+            }
+        });
         }
 
     @Override

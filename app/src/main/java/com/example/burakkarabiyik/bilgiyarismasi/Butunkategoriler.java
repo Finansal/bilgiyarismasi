@@ -71,6 +71,36 @@ FirebaseDatabase db;
                 i.putExtra(("puan"),puan);
                 startActivity(i);
                 break;
+            case R.id.button26:
+                sorgu("Teknoloji");
+                i.putExtra("kategori","Teknoloji");
+                i.putExtra(("puan"),puan);
+                startActivity(i);
+                break;
+            case R.id.button25:
+                sorgu("Tarih");
+                i.putExtra("kategori","Tarih");
+                i.putExtra(("puan"),puan);
+                startActivity(i);
+                break;
+            case R.id.button24:
+                sorgu("Bilim");
+                i.putExtra("kategori","Bilim");
+                i.putExtra(("puan"),puan);
+                startActivity(i);
+                break;
+            case R.id.button21:
+                sorgu("Matematik");
+                i.putExtra("kategori","Matematik");
+                i.putExtra(("puan"),puan);
+                startActivity(i);
+                break;
+            case R.id.button22:
+                sorgu("Edebiyat");
+                i.putExtra("kategori","Edebiyat");
+                i.putExtra(("puan"),puan);
+                startActivity(i);
+                break;
         }
     }
 

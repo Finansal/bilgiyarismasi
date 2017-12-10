@@ -25,12 +25,18 @@ public class Sonuc extends AppCompatActivity {
         Button btn=(Button)findViewById(R.id.button18);
         Button btn2=(Button)findViewById(R.id.button19);
         TextView tv2=(TextView)findViewById(R.id.textView13);
-        TextView tv3=(TextView)findViewById(R.id.textView14);
+        TextView tv3=(TextView)findViewById(R.id.textView15);
         TextView tv6=(TextView)findViewById(R.id.textView17);
+        TextView tv7=(TextView)findViewById(R.id.textView21);
         tv6.setText(extras.get("kategori").toString());
         tv2.setText(extras.get("dogru").toString());
+        int kazanilan=0;
         tv3.setText(extras.get("yanlis").toString());
-        ((TextView)findViewById(R.id.textView16)).setText("Eski Puan:"+extras.get("oncekipuan")+"\n"+"Yapılan Puan:"+extras.get("kazanilanpuan"));
+
+            kazanilan = Integer.parseInt(extras.get("kazanilanpuan").toString());
+            int onceki=Integer.parseInt(extras.get("oncekipuan").toString());
+            tv7.setText(onceki);
+        ((TextView)findViewById(R.id.textView16)).setText(kazanilan);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

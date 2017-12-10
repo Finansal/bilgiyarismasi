@@ -10,9 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         <activity android:name=".Giris">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +26,9 @@
         <activity android:name=".SoruEkle" />
         <activity android:name=".Sonuc" />
         <activity android:name=".Butunkategoriler" />
-        <activity android:name=".SifremiUnuttum"></activity>
+        <activity android:name=".SifremiUnuttum" />
+        <activity android:name=".Aciklama" />
+        <activity android:name=".SoruOneri"></activity>
     </application>
 
 </manifest>

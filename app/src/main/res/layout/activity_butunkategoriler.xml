@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#4976f2"
     tools:context="com.example.burakkarabiyik.bilgiyarismasi.Butunkategoriler">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,7 +16,6 @@
         tools:context="com.example.burakkarabiyik.bilgiyarismasi.Butunkategoriler"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="46dp"
-        android:background="@drawable/arkaplan4"
         tools:ignore="MissingConstraints">
 
         <Button
@@ -23,13 +23,20 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
 
+
             android:layout_above="@+id/button16"
             android:layout_alignParentStart="true"
             android:layout_marginStart="80dp"
             android:onClick="onClick"
             android:text="Genel Kültür"
             tools:layout_editor_absoluteX="68dp"
-            tools:layout_editor_absoluteY="111dp" />
+            tools:layout_editor_absoluteY="111dp"
+            android:background="@drawable/kategoribtn"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            />
 
         <Button
             android:id="@+id/button16"
@@ -40,7 +47,12 @@
             android:onClick="onClick"
             android:text="Sinema-Sanat"
             tools:layout_editor_absoluteX="68dp"
-            tools:layout_editor_absoluteY="37dp" />
+            tools:layout_editor_absoluteY="37dp"
+            android:background="@drawable/kategoribtn"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5" />
 
         <Button
             android:id="@+id/button21"
@@ -49,7 +61,12 @@
             android:layout_above="@+id/button22"
             android:layout_alignStart="@+id/button16"
             android:onClick="onClick"
-            android:text="Matematik" />
+            android:text="Matematik"
+            android:background="@drawable/kategoribtn"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
         <Button
             android:id="@+id/button22"
@@ -58,7 +75,12 @@
             android:layout_above="@+id/button23"
             android:layout_alignStart="@+id/button21"
             android:onClick="onClick"
-            android:text="Edebiyat" />
+            android:text="Edebiyat"
+            android:background="@drawable/kategoribtn"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
         <Button
             android:id="@+id/button23"
@@ -68,7 +90,12 @@
             android:layout_alignStart="@+id/button22"
             android:layout_marginBottom="61dp"
             android:onClick="onClick"
-            android:text="Sinema" />
+            android:text="Sinema"
+            android:background="@drawable/kategoribtn"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
         <TextView
             android:id="@+id/textView19"
@@ -78,7 +105,12 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="45dp"
             android:text="KATEGORİLER"
-            android:textColor="@color/colorPrimaryDark"
+            android:shadowColor="#ffffff"
+            android:textStyle="bold"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:textAllCaps="true"
+            android:textColor="#000000"
             android:textSize="30dp" />
 
         <Button
@@ -87,7 +119,12 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/button17"
             android:layout_alignStart="@+id/button17"
-            android:text="BİLİM " />
+            android:text="BİLİM "
+            android:background="@drawable/kategoribtn"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
         <Button
             android:id="@+id/button25"
@@ -95,7 +132,12 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/button24"
             android:layout_alignStart="@+id/button24"
-            android:text="Tarih" />
+            android:text="Tarih"
+            android:background="@drawable/kategoribtn"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
         <Button
             android:id="@+id/button26"
@@ -103,7 +145,12 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/button25"
             android:layout_alignStart="@+id/button25"
-            android:text="Teknoloji" />
+            android:text="Teknoloji"
+            android:background="@drawable/kategoribtn"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5" />
     </RelativeLayout>
 
 </RelativeLayout>
