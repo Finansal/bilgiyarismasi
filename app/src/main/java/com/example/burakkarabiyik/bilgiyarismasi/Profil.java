@@ -18,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,9 +55,9 @@ public class Profil extends AppCompatActivity {
             uid = user.getUid();
 
         }
-        kadi = (TextView) findViewById(R.id.textView4);
+        kadi = (TextView) findViewById(R.id.textView5);
         emaill = (TextView) findViewById(R.id.textView6);
-        puann = (TextView) findViewById(R.id.textView8);
+        puann = (TextView) findViewById(R.id.textView7);
 
         dbref = FirebaseDatabase.getInstance().getReference("Kullanici");
          yeni=dbref.orderByChild("email").equalTo(mail);
@@ -74,6 +75,7 @@ public class Profil extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
     }
 
     String adi;
@@ -98,7 +100,7 @@ public class Profil extends AppCompatActivity {
 
 
                                                 emaill.setText(k.getEmail());
-                                                    puann.setText(k.getpuan());
+                                                puanlarigetir();
 
                                             }
                                         }
@@ -110,6 +112,117 @@ public class Profil extends AppCompatActivity {
         );
     }
 
+    void  puanlarigetir()
+    {
+        final DatabaseReference ref3=FirebaseDatabase.getInstance().getReference("Puanlar");
+        final Query reff3=ref3.orderByChild("email").equalTo(mail);
+
+        reff3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists())
+                {
+                    for (DataSnapshot child : dataSnapshot.getChildren()) {
+                        //child is each element in the finished list
+
+                        kategoribul(child.getKey());
+                        reff3.removeEventListener(this);
+                    }
+                   // kategoripuanlar(list);
+                }
+                else
+                {
+
+                    puann.setText("Hiçbir soru çözülmedi");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    void kategoribul(final String key)
+    {
+        final ArrayList<String> list=new ArrayList<>();
+        final DatabaseReference ref3=FirebaseDatabase.getInstance().getReference("Puanlar").child(key);
+
+        ref3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists())
+                {
+                    for (DataSnapshot child : dataSnapshot.getChildren()) {
+                        //child is each element in the finished list
+                       String v= child.getKey();
+                        if(v.trim().equals("id"))
+                        {
+
+                        } else if(v.trim().equals("email"))
+                        {
+
+                        }
+                        else
+                        {
+                            list.add(v);
+                        }
+
+                    }
+                    kategoripuanlar(list);
+                }
+                else
+                {
+
+                    puann.setText("Hiçbir soru çözülmedi");
+                }
+                ref3.removeEventListener(this);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    void kategoripuanlar(final ArrayList<String> list)
+    {
+        final DatabaseReference ref3=FirebaseDatabase.getInstance().getReference("Puanlar");
+        final Query reff3=ref3.orderByChild("email").equalTo(mail);
+
+        reff3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists())
+                {
+                    for (DataSnapshot child : dataSnapshot.getChildren()) {
+                        //child is each element in the finished list
+                        Map<String, Object> message = (Map<String, Object>) child.getValue();
+                        for (String ds: list  ) {
+
+                            puann.setText(puann.getText()+ds+" : "+message.get(ds).toString()+"\n");
+                        }
+
+                        reff3.removeEventListener(this);
+                    }
+                }
+                else
+                {
+
+                    puann.setText("Hiçbir soru çözülmedi");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 
 }
 

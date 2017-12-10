@@ -50,15 +50,15 @@ public class SoruEkle extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                final String sorum= ((EditText)findViewById(R.id.editText6)).getText().toString();
-                final String c1= ((EditText)findViewById(R.id.editText7)).getText().toString();
-                final String c2=  ((EditText)findViewById(R.id.editText8)).getText().toString();
-                final String c3=  ((EditText)findViewById(R.id.editText9)).getText().toString();
-                final String c4=  ((EditText)findViewById(R.id.editText10)).getText().toString();
-                final String dogrucevap=  ((EditText)findViewById(R.id.editText13)).getText().toString();
-                final String puani=  ((EditText)findViewById(R.id.editText11)).getText().toString();
+                final String sorum= ((EditText)findViewById(R.id.editText6)).getText().toString().trim();
+                final String c1= ((EditText)findViewById(R.id.editText7)).getText().toString().trim();
+                final String c2=  ((EditText)findViewById(R.id.editText8)).getText().toString().trim();
+                final String c3=  ((EditText)findViewById(R.id.editText9)).getText().toString().trim();
+                final String c4=  ((EditText)findViewById(R.id.editText10)).getText().toString().trim();
+                final String dogrucevap=  ((EditText)findViewById(R.id.editText13)).getText().toString().trim();
+                final String puani=  ((EditText)findViewById(R.id.editText11)).getText().toString().trim();
                 final DatabaseReference ref3 = FirebaseDatabase.getInstance().getReference("SoruSayisi");
-                final String kategori=  ((EditText)findViewById(R.id.editText14)).getText().toString();
+                final String kategori=  ((EditText)findViewById(R.id.editText14)).getText().toString().trim();
                 kat=kategori;
                 final Query reff3=ref3.orderByChild("Kategori").equalTo(kategori);
                 reff3.addValueEventListener(new ValueEventListener() {

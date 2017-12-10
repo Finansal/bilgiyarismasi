@@ -1,92 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
-    xmlns:tools = "http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/arkaplan6"
     tools:context="com.example.burakkarabiyik.bilgiyarismasi.Giris">
-
-    <TextView
-        android:id="@+id/textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="ßİLGİÇ"
-        android:textSize="35dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textview"
-        android:layout_centerHorizontal="true"
-        android:text="Hoşgeldiniz"
-        android:textColor="#ff7aff24"
-        android:textSize="35dp" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/imageView"
-        android:layout_marginTop="46dp"
-        android:focusable="true"
-        android:hint="Enter Name"
-        android:text="bb@b.com"
+        android:layout_alignEnd="@+id/editText2"
+        android:ems="10"
+
+        android:inputType="textEmailAddress"
+        android:layout_above="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/Email"
         android:textColorHighlight="#ff7eff15"
-        android:textColorHint="#ffff25e6" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/ic_launcher_background"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
-
+        android:textColorHint="#CD5C5C"
+        />
     <EditText
         android:id="@+id/editText2"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/editText"
-        android:layout_below="@+id/editText"
+        android:layout_above="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginBottom="25dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="Şifre"
         android:inputType="textPassword"
-        android:text="123456"
-        android:textColorHint="#ffff299f" />
+        android:textColorHint="#CD5C5C" />
 
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
-        android:layout_alignStart="@+id/textview"
-        android:layout_marginBottom="16dp"
-        android:text="login" />
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+
+        android:layout_above="@+id/kayit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="45dp"
+        android:background="@drawable/btn"
+        android:shadowColor="#63A85E"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Giriş"
+        android:textColor="#FFF5F2"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/kayit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/button"
-        android:text="Kayıt Ol" />
+        android:layout_width="170dp"
+
+        android:layout_height="50dp"
+
+        android:layout_alignTop="@+id/button2"
+        android:layout_marginEnd="12dp"
+        android:layout_toStartOf="@+id/button2"
+        android:background="@drawable/btn"
+        android:shadowColor="#63A85E"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="KAYIT OL"
+        android:textColor="#FFF5F2"
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="170dp"
+
+        android:layout_height="50dp"
+
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="22dp"
-        android:text="Şifremi Unuttum" />
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/btn"
+        android:shadowColor="#63A85E"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Şifremi Unuttum"
+        android:textColor="#FFF5F2"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="38dp"
+        android:text="BİLGİÇ"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/ico" />
+
 </RelativeLayout>

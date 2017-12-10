@@ -39,7 +39,6 @@ public class Ayarlar extends AppCompatActivity {
         edtsifre.setText(extras.getString("sifre"));
         final String pn=extras.getString("puan");
         final String id=extras.getString("id");
-        Toast.makeText(getApplicationContext(), id, Toast.LENGTH_LONG).show();
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

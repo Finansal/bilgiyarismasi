@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/arkaplan5"
     tools:context="com.example.burakkarabiyik.bilgiyarismasi.SoruEkle">
 
     <RelativeLayout
@@ -16,6 +17,8 @@
             android:id="@+id/editText6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:ems="10"
             android:hint="Soru"
             android:inputType="textPersonName" />
@@ -24,6 +27,7 @@
             android:id="@+id/editText7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/editText6"
             android:ems="10"
@@ -36,7 +40,8 @@
             android:id="@+id/editText10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/editText9"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/editText9"
             android:ems="10"
             android:hint="D şıkkı"
@@ -48,7 +53,8 @@
             android:id="@+id/editText9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/editText8"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/editText8"
             android:ems="10"
             android:hint="C şıkkı"
@@ -60,7 +66,8 @@
             android:id="@+id/editText8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/button8"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/editText7"
             android:ems="10"
             android:hint="B şıkkı"
@@ -82,7 +89,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/button8"
-            android:layout_alignStart="@+id/editText10"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:ems="10"
             android:hint="Puanı"
             android:inputType="textPersonName" />
@@ -91,21 +99,23 @@
             android:id="@+id/editText13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Doğru Şık" />
+            android:hint="Doğru Şık"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/editText14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/editText11"
-            android:layout_alignEnd="@+id/editText11"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Kategorisi" />
+            android:hint="Kategorisi"
+            android:inputType="textPersonName" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

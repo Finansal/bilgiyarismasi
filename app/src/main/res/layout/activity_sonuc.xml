@@ -6,4 +6,86 @@
     android:layout_height="match_parent"
     tools:context="com.example.burakkarabiyik.bilgiyarismasi.Sonuc">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <Button
+            android:id="@+id/button19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/button18"
+            android:layout_alignBottom="@+id/button18"
+            android:layout_toEndOf="@+id/textView14"
+            android:text="Anasayfaya Git" />
+
+        <Button
+            android:id="@+id/button18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView8"
+            android:layout_centerVertical="true"
+            android:text="Çık" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="138dp"
+            android:layout_marginTop="90dp"
+            android:text="Doğru Sayısı :  "
+            tools:layout_editor_absoluteX="139dp"
+            tools:layout_editor_absoluteY="108dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView8"
+            android:layout_marginStart="13dp"
+            android:layout_toEndOf="@+id/button18"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView13"
+            android:layout_below="@+id/textView13"
+            android:layout_marginTop="18dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/button18"
+            android:layout_alignTop="@+id/textView14"
+            android:text="Yanlış Sayısı : " />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/button18"
+            android:layout_below="@+id/textView15"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="46dp"
+            android:text="Puan :" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView13"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="25dp"
+            android:text="TextView" />
+
+    </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>

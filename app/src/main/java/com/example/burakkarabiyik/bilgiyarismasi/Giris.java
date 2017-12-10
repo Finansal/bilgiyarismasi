@@ -1,6 +1,7 @@
 package com.example.burakkarabiyik.bilgiyarismasi;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,6 +47,7 @@ public class Giris extends AppCompatActivity {
         }, 100); */
         Button btn = (Button)findViewById(R.id.kayit);
         Button btn2 = (Button)findViewById(R.id.button);
+        Button btn3 = (Button)findViewById(R.id.button2);
         mAuth = FirebaseAuth.getInstance();
         //Butonumuza tıklama özelliği kazandırıyoruz.
         btn.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +59,15 @@ public class Giris extends AppCompatActivity {
                 startActivity(intocan);
             }
         });
+        btn3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //Ardından Intent methodunu kullanarak nereden nereye gideceğini söylüyoruz.
+                Intent intocan = new Intent(Giris.this, SifremiUnuttum.class);
+                startActivity(intocan);
+            }
+        });
 
 
         btn2.setOnClickListener(new View.OnClickListener() {
@@ -63,9 +75,10 @@ public class Giris extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               sign(((EditText)findViewById(R.id.editText)).getText().toString(),((EditText)findViewById(R.id.editText2)).getText().toString());
+               sign(((EditText)findViewById(R.id.editText)).getText().toString().trim(),((EditText)findViewById(R.id.editText2)).getText().toString().trim());
 
             }
+
         });
     }
 
