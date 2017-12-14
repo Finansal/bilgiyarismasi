@@ -4,84 +4,109 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/kurallar"
     tools:context="com.example.burakkarabiyik.bilgiyarismasi.Ayarlar">
 
     <RelativeLayout
         android:id="@+id/Şifre"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="16dp">
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView10"
-            android:layout_centerVertical="true"
-            android:text="Email" />
-
-        <EditText
-            android:id="@+id/editText5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView11"
-            android:layout_alignBottom="@+id/textView11"
-            android:layout_alignStart="@+id/editText4"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Şifre" />
-
-        <EditText
-            android:id="@+id/editText4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/editText3"
-            android:layout_below="@+id/editText3"
-            android:layout_marginTop="13dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Email" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/editText4"
-            android:layout_alignBottom="@+id/editText4"
-            android:layout_alignStart="@+id/textView9"
-            android:text="Şifre" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="123dp"
-            android:text="Kullanıcı Adı" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <EditText
             android:id="@+id/editText3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/editText4"
+
             android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="34dp"
-            android:layout_marginTop="107dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="32dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Kullanıcı Adı" />
+            android:hint="Ad Soyad"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView11"
+            android:layout_alignBottom="@+id/textView11"
+            android:layout_alignStart="@+id/editText3"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/editText4"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:hint="Yeni Şifre"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/editText21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/yenisifretekrar"
+            android:layout_alignBottom="@+id/yenisifretekrar"
+            android:layout_alignStart="@+id/editText5"
+            android:ems="10"
+
+            android:hint="Yeni Şifre Tekrar"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/editText5"
+            android:layout_alignEnd="@+id/textView3"
+            android:layout_marginBottom="25dp"
+            android:text="Email:" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/yenisifretekrar"
+            android:layout_centerVertical="true"
+            android:text="Yeni Şifre:" />
+
+        <TextView
+            android:id="@+id/yenisifretekrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText5"
+            android:layout_marginEnd="14dp"
+            android:layout_marginTop="38dp"
+            android:layout_toStartOf="@+id/editText5"
+            android:gravity="center"
+            android:text="Yeni Şifre Tekrar:" />
+
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/editText3"
+            android:layout_alignBottom="@+id/editText3"
+            android:layout_alignStart="@+id/textView3"
+            android:text="Ad Soyad :" />
 
         <Button
             android:id="@+id/button7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/editText4"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="121dp"
-            android:layout_marginEnd="47dp"
+            android:layout_alignStart="@+id/editText5"
+            android:layout_below="@+id/editText5"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="115dp"
+            android:background="@drawable/sonucbtn"
             android:text="Degistir" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

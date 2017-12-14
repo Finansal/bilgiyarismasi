@@ -7,6 +7,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.net.ConnectivityManager;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -68,6 +69,7 @@ int ooo=0;
                 //Ardından Intent methodunu kullanarak nereden nereye gideceğini söylüyoruz.
                 Intent intocan = new Intent(Giris.this, Kayitol.class);
                 startActivity(intocan);
+                Giris.this.finishAffinity();
             }
         });
         btn3.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +79,7 @@ int ooo=0;
                 //Ardından Intent methodunu kullanarak nereden nereye gideceğini söylüyoruz.
                 Intent intocan = new Intent(Giris.this, SifremiUnuttum.class);
                 startActivity(intocan);
+                Giris.this.finishAffinity();
             }
         });
 
@@ -86,13 +89,25 @@ int ooo=0;
             @Override
             public void onClick(View v) {
 
-               sign(((EditText)findViewById(R.id.editText)).getText().toString().trim(),((EditText)findViewById(R.id.editText2)).getText().toString().trim());
+                if(internetErisimi()){ { sign(((EditText)findViewById(R.id.editText)).getText().toString().trim(),((EditText)findViewById(R.id.editText2)).getText().toString().trim()); } }else{ {
+
+
+                    Toast.makeText(Giris.this, "İnternet Gerekmektedir ",
+                            Toast.LENGTH_SHORT).show();
+                } }
+
 
             }
 
         });
     }
 
+    public boolean internetErisimi() {
+        ConnectivityManager conMgr = (ConnectivityManager) getSystemService (Context.CONNECTIVITY_SERVICE);
+        if (conMgr.getActiveNetworkInfo() != null         && conMgr.getActiveNetworkInfo().isAvailable()         && conMgr.getActiveNetworkInfo().isConnected())
+        {         return true;         }
+        else {         return false;         }
+    }
 
 
 
@@ -103,6 +118,7 @@ int ooo=0;
     {
         Intent intocan = new Intent(Giris.this, SoruEkle.class);
         startActivity(intocan);
+        Giris.this.finishAffinity();
     }
     else
     {
@@ -115,8 +131,17 @@ int ooo=0;
                             // Sign in success, update UI with the signed-in user's information
 
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intocan = new Intent(Giris.this, Anasayfa.class);
-                            startActivity(intocan);
+                          //  if(user.isEmailVerified())
+                            //{
+                                Intent intocan = new Intent(Giris.this, Anasayfa.class);
+                                startActivity(intocan);
+
+                                Giris.this.finishAffinity();
+                           /* }
+                            else {
+                                Toast.makeText(Giris.this, "Üyeliğinizi Onaylamanız Gerekmektedir ",
+                                        Toast.LENGTH_SHORT).show();
+                            }*/
 
                         } else {
                             // If sign in fails, display a message to the user.

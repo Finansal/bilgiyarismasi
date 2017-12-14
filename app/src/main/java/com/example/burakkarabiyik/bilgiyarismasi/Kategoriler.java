@@ -1,16 +1,20 @@
 package com.example.burakkarabiyik.bilgiyarismasi;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.AsyncTask;
+import android.os.CountDownTimer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,13 +48,14 @@ public class Kategoriler extends AppCompatActivity {
     Kullanici k;
     String degeri;
     String cevap;
+    ProgressDialog pDialog;
     String id;
     String mod,kategori;
     int cozulensorusayisi=0;
     int rastgele,sonuc;
     int dogru=0,yanlis=0;
     List<String> sorunumaralari = new ArrayList<String>();
-
+    TextView txtsure;
     //////////////////////
     private SensorManager sm;
     private float acelVal;
@@ -66,12 +71,18 @@ public class Kategoriler extends AppCompatActivity {
 
         sm=(SensorManager)getSystemService(Context.SENSOR_SERVICE);
         sm.registerListener(sensorListener,sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),SensorManager.SENSOR_DELAY_NORMAL);
-
+        a=(Button)findViewById(R.id.button11);
+        b=(Button)findViewById(R.id.button12);
+        c=(Button)findViewById(R.id.button13);
+        d=(Button)findViewById(R.id.button14);
+        cik=(Button)findViewById(R.id.button15);
         acelVal=SensorManager.GRAVITY_EARTH;
         acelLast=SensorManager.GRAVITY_EARTH;
+        new Post().execute();
+        Bundle extras = getIntent().getExtras();
+        kategori=extras.getString("kategori");
         shake=0.00f;
-
-
+        txtsure=(TextView)findViewById(R.id.textView4);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -87,39 +98,56 @@ public class Kategoriler extends AppCompatActivity {
             // FirebaseUser.getToken() instead.
 
         }
-        Bundle extras = getIntent().getExtras();
-        kategori=extras.getString("kategori");
+
         edtsoru=(TextView)findViewById(R.id.editText12);
-        a=(Button)findViewById(R.id.button11);
-        b=(Button)findViewById(R.id.button12);
-        c=(Button)findViewById(R.id.button13);
-        d=(Button)findViewById(R.id.button14);
-        cik=(Button)findViewById(R.id.button15);
-        Toast.makeText(Kategoriler.this, kategori,
-                Toast.LENGTH_SHORT).show();
 
-            final DatabaseReference ref3 = FirebaseDatabase.getInstance().getReference("SoruSayisi");
 
-            final Query reff3=ref3.orderByChild("Kategori").equalTo(kategori);
-            reff3.addValueEventListener(new ValueEventListener() {
+        final DatabaseReference ref3 = FirebaseDatabase.getInstance().getReference("SoruSayisi");
+
+        final Query reff3=ref3.orderByChild("Kategori").equalTo(kategori);
+        reff3.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-            for (DataSnapshot child : dataSnapshot.getChildren()) {
-            //child is each element in the finished list
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    //child is each element in the finished list
 
-            Map<String, Object> message = (Map<String, Object>) child.getValue();
-                mod=(String)message.get("SoruSayisi");
+                    Map<String, Object> message = (Map<String, Object>) child.getValue();
+                    mod=(String)message.get("SoruSayisi");
 
-              sayiuret();
+                    ///////////
+                    rastgele=r.nextInt(Integer.parseInt(mod))+1;
+                    sonuc=sorunumaralari.indexOf(Integer.toString(rastgele));
 
-            }
+                    if(Integer.toString(sonuc).equals("-1"))
+                    {
+                        sorunumaralari.add(Integer.toString(rastgele));
+                        soru(Integer.toString(rastgele));
+
+                        cozulensorusayisi++;
+
+                    }
+                    else
+                    {
+                        if(mod.equals(Integer.toString(cozulensorusayisi)))
+                        {
+                            bitir();
+                        }
+                        else
+                        {
+                            sayiuret();
+
+                        }
+                    }
+
+
+                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
-            });
+        });
 
 
         ref = FirebaseDatabase.getInstance().getReference("Kullanici");
@@ -141,13 +169,64 @@ public class Kategoriler extends AppCompatActivity {
 
             }
         });
-        Button bt=(Button)findViewById(R.id.button10);
-        Button ikikat=(Button)findViewById(R.id.button9);
+
+
+        final Button bt=(Button)findViewById(R.id.button10);
+        final Button ikikat=(Button)findViewById(R.id.button9);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                c.setVisibility(View.GONE);
-                d.setVisibility(View.GONE);
+
+               char[] cevaplar={'a','b','c','d'};
+                for (int i=0;i<4;i++)
+                {
+                    if(cevaplar[i]==cevap.charAt(0))
+                    {
+                        cevaplar[i]='0';
+
+
+                    }
+                }
+
+
+               int k=2;
+
+
+
+                      do{
+
+                          rastgele=r.nextInt(3);
+                       if(cevaplar[Integer.parseInt(Integer.toString(rastgele))]!='0')
+                       {
+
+
+
+                           String cvp=Character.toString(cevaplar[Integer.parseInt(Integer.toString(rastgele))]);
+
+                           if(cvp.equals("a"))
+                           {
+                               a.setVisibility(View.INVISIBLE);
+                           }
+
+                           if(cvp.equals("b"))
+                           {
+                               b.setVisibility(View.INVISIBLE);
+                           }
+
+                           if(cvp.equals("c"))
+                           {
+                               c.setVisibility(View.INVISIBLE);
+                           }
+                           if(cvp.equals("d"))
+                           {
+                               d.setVisibility(View.INVISIBLE);
+                           }
+                           k--;
+                           cevaplar[rastgele]='0';
+                       }
+                   }while (k!=0);
+                      bt.setVisibility(View.INVISIBLE);
+
             }
         });
         //Buttonlarrr
@@ -156,6 +235,7 @@ public class Kategoriler extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 degeri=Integer.toString(2*Integer.parseInt(degeri));
+                ikikat.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -163,7 +243,7 @@ public class Kategoriler extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sorgu();
-
+                suredurdur();
             if(cevap.equals("a"))
             {
                 dogru++;
@@ -173,15 +253,16 @@ public class Kategoriler extends AppCompatActivity {
             }
             else {
                 yanlis++;
-                kazanilanpuan=kazanilanpuan-Integer.parseInt(degeri);
                sayiuret();
             }
+                goster();
             }
         });
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sorgu();
+                suredurdur();
                 if(cevap.equals("b"))
                 {
                     dogru++;
@@ -191,15 +272,17 @@ public class Kategoriler extends AppCompatActivity {
                 }
                 else {
                     yanlis++;
-                    kazanilanpuan=kazanilanpuan-Integer.parseInt(degeri);
                     sayiuret();
                 }
+
+                goster();
             }
         });
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sorgu();
+                suredurdur();
                 if(cevap.equals("c"))
                 {
                     kazanilanpuan=kazanilanpuan+Integer.parseInt(degeri);
@@ -210,15 +293,17 @@ public class Kategoriler extends AppCompatActivity {
                 else
                 {
                     yanlis++;
-                    kazanilanpuan=kazanilanpuan-Integer.parseInt(degeri);
                     sayiuret();
                 }
+
+                goster();
             }
         });
         d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sorgu();
+                suredurdur();
                 if(cevap.equals("d"))
                 {
                     dogru++;
@@ -228,10 +313,10 @@ public class Kategoriler extends AppCompatActivity {
                 else
                 {
                     yanlis++;
-                    kazanilanpuan=kazanilanpuan-Integer.parseInt(degeri);
                     sayiuret();
 
                 }
+                goster();
             }
         });
 
@@ -239,12 +324,59 @@ public class Kategoriler extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                bitir();
+                cikartbeni();
 
             }
         });
 
 
+    }
+
+    void cikartbeni()
+    {
+        new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Exit")
+                .setMessage("Çıkmak istediğinize emin misiniz?")
+                .setPositiveButton("Evet", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent intent = new Intent(Kategoriler.this, Butunkategoriler.class);
+                        startActivity(intent);
+                        Kategoriler.this.finishAffinity();
+                    }
+                }).setNegativeButton("Hayır", null).show();
+    }
+    void yoket(String cvp)
+    {
+        Toast.makeText(Kategoriler.this, cvp,
+                Toast.LENGTH_SHORT).show();
+
+
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Exit")
+                .setMessage("Çıkmak istediğinize emin misiniz?")
+                .setPositiveButton("Evet", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent intent = new Intent(Kategoriler.this, Butunkategoriler.class);
+                        startActivity(intent);
+                        Kategoriler.this.finishAffinity();
+                    }
+                }).setNegativeButton("Hayır", null).show();
+    }
+
+    void goster()
+    {
+        a.setVisibility(View.VISIBLE);
+        b.setVisibility(View.VISIBLE);
+        c.setVisibility(View.VISIBLE);
+        d.setVisibility(View.VISIBLE);
     }
     void sayiuret()
     {
@@ -334,6 +466,7 @@ public class Kategoriler extends AppCompatActivity {
                     Map<String, Object> message = (Map<String, Object>) child.getValue();
                     if(sorum.equals(message.get("numarasi").toString()))
                     {
+                        btnOyunBaslatClick();
                         edtsoru.setText(message.get("Soru").toString());
                         a.setText(message.get("cevap1").toString());
                         b.setText(message.get("cevap2").toString());
@@ -341,6 +474,9 @@ public class Kategoriler extends AppCompatActivity {
                         d.setText(message.get("cevap4").toString());
                         cevap=message.get("dogru").toString();
                         degeri=message.get("puan").toString();
+
+                        TextView tvdeger=(TextView)findViewById(R.id.textView5);
+                        tvdeger.setText("Sorunun Değeri : "+degeri);
                     }
                 }
             }
@@ -354,6 +490,57 @@ public class Kategoriler extends AppCompatActivity {
         soru=sorum;
     }
 
+
+    class Post extends AsyncTask<Void, Void, Void> {
+
+        protected void onPreExecute() { // Post tan önce yapılacak işlemler. Yükleniyor yazısını(ProgressDialog) gösterdik.
+            pDialog = new ProgressDialog(Kategoriler.this);
+            pDialog.setMessage("Yükleniyor...");
+            pDialog.setIndeterminate(true);
+            pDialog.setCancelable(false); // ProgressDialog u iptal edilemez hale getirdik.
+            pDialog.show();
+        }
+
+        protected Void doInBackground(Void... unused) { // Arka Planda yapılacaklar. Yani Post işlemi
+
+
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            return null;
+        }
+
+        protected void onPostExecute(Void unused) { //Posttan sonra
+            pDialog.dismiss();  //ProgresDialog u kapatıyoruz.
+
+        }
+    }
+    CountDownTimer t;
+    public void btnOyunBaslatClick() {
+        t= new CountDownTimer(45000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                // Kalan süreyi saniye cinsine çevirip ekran alanına yazıyoruz.
+
+                txtsure.setText(Long.toString(millisUntilFinished / 1000));
+            }
+
+            public void onFinish() {
+                // Süre tamamlandığını bildiriyoruz.
+                sayiuret();
+                suredurdur();
+
+
+                //sayimBitti = true;
+            }
+        }.start();
+
+    }
+    public void suredurdur()
+    {
+        t.cancel();
+    }
 
     void bitir()
     {
@@ -383,6 +570,7 @@ public class Kategoriler extends AppCompatActivity {
                         intocan.putExtra("kategori",kategori);
                         startActivity(intocan);
                         reff3.removeEventListener(this);
+                        Kategoriler.this.finishAffinity();
                     }
                 }
             }
@@ -393,4 +581,6 @@ public class Kategoriler extends AppCompatActivity {
             }
         });
     }
+
+
 }

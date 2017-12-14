@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3b3e51"
+    android:background="@drawable/girisarkaplan"
 
     tools:context="com.example.burakkarabiyik.bilgiyarismasi.Giris">
 
@@ -20,6 +20,7 @@
         android:ems="10"
         android:hint="@string/Email"
         android:inputType="textEmailAddress"
+        android:text="burak.mvr@gmail.com"
         android:textColor="#ffffff"
         android:textColorHighlight="#ff7eff15"
         android:textColorHint="#ffffff" />
@@ -34,6 +35,7 @@
         android:ems="10"
         android:hint="Şifre"
         android:inputType="textPassword"
+        android:text="123456"
         android:textColor="#ffffff"
         android:textColorHint="#ffffff" />
 

@@ -22,32 +22,27 @@ public class Sonuc extends AppCompatActivity {
                 intocan.putExtra("kazanilanpuan",kazanilanpuan);
          */
         Bundle extras = getIntent().getExtras();
-        Button btn=(Button)findViewById(R.id.button18);
-        Button btn2=(Button)findViewById(R.id.button19);
+        Button btn2=(Button)findViewById(R.id.button18);
         TextView tv2=(TextView)findViewById(R.id.textView13);
         TextView tv3=(TextView)findViewById(R.id.textView15);
-        TextView tv6=(TextView)findViewById(R.id.textView17);
-        TextView tv7=(TextView)findViewById(R.id.textView21);
-        tv6.setText(extras.get("kategori").toString());
-        tv2.setText(extras.get("dogru").toString());
-        int kazanilan=0;
-        tv3.setText(extras.get("yanlis").toString());
 
-            kazanilan = Integer.parseInt(extras.get("kazanilanpuan").toString());
-            int onceki=Integer.parseInt(extras.get("oncekipuan").toString());
-            tv7.setText(onceki);
-        ((TextView)findViewById(R.id.textView16)).setText(kazanilan);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               cik();
-            }
-        });
+        TextView tv7=(TextView)findViewById(R.id.textView21);
+
+        tv2.setText("Doğru Sayısı :  "+extras.get("dogru").toString());
+
+        tv3.setText("Yanlış Sayısı:  "+extras.get("yanlis").toString());
+
+        tv7.setText("Önceki Puan  :  "+extras.get("oncekipuan").toString());
+
+        ((TextView)findViewById(R.id.textView17)).setText("Kazanılan Puan  : "+extras.get("kazanilanpuan").toString());
+
+
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intocan = new Intent(Sonuc.this, Anasayfa.class);
                 startActivity(intocan);
+                Sonuc.this.finishAffinity();
             }
         });
 
@@ -62,7 +57,7 @@ public class Sonuc extends AppCompatActivity {
     void cik()
     {
         new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Exit")
-                .setMessage("Çıkmak istediğinize emin misiniz?")
+                .setMessage("Uygulamadan çıkmak istediğinize emin misiniz?")
                 .setPositiveButton("Evet", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -71,6 +66,7 @@ public class Sonuc extends AppCompatActivity {
                         intent.addCategory(Intent.CATEGORY_HOME);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
+                        Sonuc.this.finishAffinity();
                     }
                 }).setNegativeButton("Hayır", null).show();
     }

@@ -134,5 +134,6 @@ public class SoruEkle extends AppCompatActivity {
         users.put("puan", puan);
         reference.child(key).setValue(users);
         rf.child(soruid).child("SoruSayisi").setValue(num);
+        Toast.makeText(getApplicationContext(), "Soru Başarıyla Eklendi", Toast.LENGTH_LONG).show();
     }
 }

@@ -27,7 +27,6 @@ public class Butunkategoriler extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_butunkategoriler);
-        Button btn=(Button)findViewById(R.id.button16);
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -51,17 +50,13 @@ public class Butunkategoriler extends AppCompatActivity {
     }
 FirebaseDatabase db;
     public void onClick(View v) {
+
         Intent i=new Intent(getApplicationContext(),Kategoriler.class);
+
         switch(v.getId()){
             case R.id.button17:
-                sorgu("Türkçe");
-                i.putExtra("kategori","Türkçe");
-                i.putExtra(("puan"),puan);
-                startActivity(i);
-                break;
-            case R.id.button16:
-                sorgu("Matematik");
-                i.putExtra("kategori","Matematik");
+                sorgu("GenelKultur");
+                i.putExtra("kategori","GenelKultur");
                 i.putExtra(("puan"),puan);
                 startActivity(i);
                 break;
@@ -90,8 +85,8 @@ FirebaseDatabase db;
                 startActivity(i);
                 break;
             case R.id.button21:
-                sorgu("Matematik");
-                i.putExtra("kategori","Matematik");
+                sorgu("Coğrafya");
+                i.putExtra("kategori","Coğrafya");
                 i.putExtra(("puan"),puan);
                 startActivity(i);
                 break;
@@ -102,6 +97,14 @@ FirebaseDatabase db;
                 startActivity(i);
                 break;
         }
+        Butunkategoriler.this.finishAffinity();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intocan = new Intent(Butunkategoriler.this, Anasayfa.class);
+        startActivity(intocan);
+        Butunkategoriler.this.finishAffinity();
     }
 
     public  void sorgu(final String kategori)

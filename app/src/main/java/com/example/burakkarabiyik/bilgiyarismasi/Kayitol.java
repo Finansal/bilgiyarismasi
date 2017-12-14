@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -50,7 +51,7 @@ public class Kayitol extends AppCompatActivity {
 
     }
 
-    public void createuser(String kadi,String email,String password)
+    public void createuser(String kadi,String email)
     {
         final DatabaseReference reference = db.getReference().child("Kullanici");
         String key=reference.push().getKey();
@@ -58,15 +59,20 @@ public class Kayitol extends AppCompatActivity {
         Map<String, String> users = new HashMap<>();
         users.put("id",key);
         users.put("Kullaniciadi", kadi);
-        users.put("email", email);
-        users.put("sifre", password);
-        users.put("puan", "0");
-        users.put("seviye", "1");
+        users.put("email", email); ;
         reference.child(key).setValue(users);
         Intent intocan = new Intent(Kayitol.this, Giris.class);
         Toast.makeText(getApplicationContext(), "Kayıt Olundu", Toast.LENGTH_LONG).show();
         startActivity(intocan);
+        Kayitol.this.finishAffinity();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intocan = new Intent(Kayitol.this, Giris.class);
+        startActivity(intocan);
+        Kayitol.this.finishAffinity();
     }
 
     public  void uyeol(final String kadi, final String email, final String password)
@@ -76,12 +82,19 @@ public class Kayitol extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        Toast.makeText(getApplicationContext(), "Giriş", Toast.LENGTH_LONG).show();
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
 
                             FirebaseUser user = mAuth.getCurrentUser();
-                            createuser(kadi,email,password);
+                            createuser(kadi,email);
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(kadi).build();
+                         //   user.sendEmailVerification();
+                            user.updateProfile(profileUpdates);
+
+
+
+
 
 
                         } else {
