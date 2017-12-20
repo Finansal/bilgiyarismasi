@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#782e2e"
-    tools:context="com.example.burakkarabiyik.bilgiyarismasi.Profil">
+    android:screenOrientation="portrait"
+    tools:context="com.burakkarabiyik.finansal.bilgiyarismasi.Profil">
 
     <ScrollView
         android:layout_width="match_parent"

@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:screenOrientation="portrait"
     android:layout_height="match_parent"
     android:background="@drawable/kurallar"
-    tools:context="com.example.burakkarabiyik.bilgiyarismasi.Ayarlar">
+    tools:context="com.burakkarabiyik.finansal.bilgiyarismasi.Ayarlar">
 
     <RelativeLayout
         android:id="@+id/Şifre"
@@ -13,19 +14,6 @@
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
-
-        <EditText
-            android:id="@+id/editText3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/editText4"
-
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="24dp"
-            android:layout_marginEnd="32dp"
-            android:ems="10"
-            android:hint="Ad Soyad"
-            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/editText4"
@@ -59,6 +47,19 @@
 
             android:hint="Yeni Şifre Tekrar"
             android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/editText4"
+
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:hint="Ad Soyad"
+            android:inputType="textPersonName" />
 
         <TextView
             android:id="@+id/textView11"

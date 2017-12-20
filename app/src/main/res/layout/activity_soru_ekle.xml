@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/kayitsifrearkaplan"
-    tools:context="com.example.burakkarabiyik.bilgiyarismasi.SoruEkle">
+    android:screenOrientation="portrait"
+    tools:context="com.burakkarabiyik.finansal.bilgiyarismasi.SoruEkle">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,6 +25,7 @@
             android:inputType="textPersonName" />
 
         <EditText
+
             android:id="@+id/editText7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

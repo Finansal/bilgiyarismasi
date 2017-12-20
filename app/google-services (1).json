@@ -1,0 +1,130 @@
+{
+  "project_info": {
+    "project_number": "295809454885",
+    "firebase_url": "https://bilgi-yarismasi-44e72.firebaseio.com",
+    "project_id": "bilgi-yarismasi-44e72",
+    "storage_bucket": "bilgi-yarismasi-44e72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295809454885:android:1af6923179607d7a",
+        "android_client_info": {
+          "package_name": "burakkarabiyik.bilgiyarismasi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295809454885-uds8hh7mq0bduc8iqki2a8ifm30u7kbk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "burakkarabiyik.bilgiyarismasi",
+            "certificate_hash": "594d23eb7b418a7cd13ca81ef9a3e3f2559811e1"
+          }
+        },
+        {
+          "client_id": "295809454885-88vrlsc90g7i78osk623ea04g6ngspi1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKDQl5VzTUCeyJUc7hklIhnLXJTNbaatY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295809454885-88vrlsc90g7i78osk623ea04g6ngspi1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295809454885:android:7c9b478323eaac76",
+        "android_client_info": {
+          "package_name": "com.example.burakkarabiyik.bilgiyarismasi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295809454885-641pum56tg01huatinlj20cpj9sh3ano.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.burakkarabiyik.bilgiyarismasi",
+            "certificate_hash": "594d23eb7b418a7cd13ca81ef9a3e3f2559811e1"
+          }
+        },
+        {
+          "client_id": "295809454885-88vrlsc90g7i78osk623ea04g6ngspi1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKDQl5VzTUCeyJUc7hklIhnLXJTNbaatY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295809454885-88vrlsc90g7i78osk623ea04g6ngspi1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295809454885:android:a5ec1b8e624b9d46",
+        "android_client_info": {
+          "package_name": "com.burakkarabiyik.finansal.bilgiyarismasi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295809454885-88vrlsc90g7i78osk623ea04g6ngspi1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKDQl5VzTUCeyJUc7hklIhnLXJTNbaatY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

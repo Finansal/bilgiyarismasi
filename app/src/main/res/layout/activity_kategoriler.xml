@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:screenOrientation="portrait"
+    android:theme="@style/Theme.AppCompat.NoActionBar"
     android:layout_height="match_parent"
-    tools:context="com.example.burakkarabiyik.bilgiyarismasi.Kategoriler">
+    tools:context="com.burakkarabiyik.finansal.bilgiyarismasi.Kategoriler">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,7 +15,7 @@
         android:layout_width="match_parent"
         android:background="@drawable/arkaplan4"
         android:layout_height="match_parent"
-        tools:context="com.example.burakkarabiyik.bilgiyarismasi.Kategoriler">
+        tools:context="com.burakkarabiyik.finansal.bilgiyarismasi.Kategoriler">
 
         <Button
             android:id="@+id/button9"

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/sonucarkaplan"
-    tools:context="com.example.burakkarabiyik.bilgiyarismasi.Sonuc">
+    android:screenOrientation="portrait"
+    tools:context="com.burakkarabiyik.finansal.bilgiyarismasi.Sonuc">
 
 
     <RelativeLayout

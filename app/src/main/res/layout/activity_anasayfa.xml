@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/kurallar"
+    android:screenOrientation="portrait"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.burakkarabiyik.bilgiyarismasi.Anasayfa">
+    tools:context="com.burakkarabiyik.finansal.bilgiyarismasi.Anasayfa">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
@@ -14,7 +15,7 @@
         android:screenOrientation="portrait"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.burakkarabiyik.bilgiyarismasi.Anasayfa">
+        tools:context="com.burakkarabiyik.finansal.bilgiyarismasi.Anasayfa">
 
         <Button
             android:id="@+id/button3"

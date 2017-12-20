@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.AppCompat.NoActionBar"
     android:background="@drawable/girisarkaplan"
+    android:screenOrientation="portrait"
 
-    tools:context="com.example.burakkarabiyik.bilgiyarismasi.Giris">
+    tools:context="com.burakkarabiyik.finansal.bilgiyarismasi.Giris">
 
     <EditText
         android:id="@+id/editText"
@@ -19,8 +21,8 @@
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/Email"
-        android:inputType="textEmailAddress"
         android:text="burak.mvr@gmail.com"
+        android:inputType="textEmailAddress"
         android:textColor="#ffffff"
         android:textColorHighlight="#ff7eff15"
         android:textColorHint="#ffffff" />
@@ -34,8 +36,8 @@
         android:layout_marginBottom="25dp"
         android:ems="10"
         android:hint="Şifre"
-        android:inputType="textPassword"
         android:text="123456"
+        android:inputType="textPassword"
         android:textColor="#ffffff"
         android:textColorHint="#ffffff" />
 

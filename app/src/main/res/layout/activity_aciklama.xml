@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@drawable/kurallar"
+    android:screenOrientation="portrait"
     android:layout_height="match_parent"
-    tools:context="com.example.burakkarabiyik.bilgiyarismasi.Aciklama">
+    tools:context="com.burakkarabiyik.finansal.bilgiyarismasi.Aciklama">
 
     <RelativeLayout
         android:layout_width="match_parent"
